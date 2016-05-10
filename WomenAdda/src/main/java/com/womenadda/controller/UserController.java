@@ -6,13 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
-	
-	@RequestMapping("/")
-	public ModelAndView homePage()
-	{
-		return new ModelAndView("index");		
-	}
-	
+		
 	@RequestMapping("/login")
 	public ModelAndView loginPage()
 	{

@@ -22,6 +22,7 @@
 <h1>
     Add a Product
 </h1>
+
 <c:url var="addAction" value="/admin/add" ></c:url>
 <form:form action="${addAction}" commandName="product" modelAttribute="product">
 <table>
@@ -36,6 +37,7 @@
             <form:input path="id" readonly="true" size="8"  disabled="true" />
             <form:hidden path="id" />
         </td> 
+        
     </tr>
     </c:if>
     <tr>
@@ -45,8 +47,9 @@
             </form:label>
         </td>
         <td>
-            <form:input path="name" />
+            <form:input path="name" /><form:errors path="name" cssStyle="color: #ff0000;"/>
         </td> 
+        
     </tr>
     <tr>
         <td>
@@ -57,16 +60,27 @@
         <td>
             <form:input path="brand" />
         </td>
+        
     </tr>
+    
      <tr>
-        <td>
-            <form:label path="color">
+     <td>
+      <form:label path="color">
                 <spring:message text="Color"/>
             </form:label>
-        </td>
+            </td>
         <td>
-            <form:input path="color" />
-        </td> 
+           <form:select path="color">
+				<form:option value="" label="--- Select ---" />
+				<form:option value="red">Red</form:option>  
+                <form:option value="green">Green</form:option>  
+                <form:option value="blue">Blue</form:option>  
+                <form:option value="white">White</form:option>  
+                </form:select>
+      </td>
+     
+        
+       
     </tr>
     
      <tr>

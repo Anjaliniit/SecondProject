@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @Entity
 @Table(name="Product")
@@ -17,7 +20,15 @@ public class Product implements Serializable {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 int id;
-String name, brand, category,description,color;
+@NotEmpty(message="name can not be empty")
+String name;
+String brand;
+String category;
+String description;
+
+
+
+String color;
 double price;
 public Product()
 {
@@ -106,6 +117,7 @@ public double getPrice() {
  * @param price the price to set
  */
 public void setPrice(double price) {
+	
 	this.price = price;
 }
 

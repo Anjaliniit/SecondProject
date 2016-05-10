@@ -1,9 +1,12 @@
 package com.womenadda.controller;
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,8 +37,15 @@ public class AdminController {
 	        return "admin";	
 	}
 	@RequestMapping(value="/admin/add")
-	String insertProduct(@ModelAttribute("product") Product p)
+	String insertProduct(@Valid @ModelAttribute("product") Product p,BindingResult result, Model model)
 	{
+		if(result.hasErrors())
+		{
+			model.addAttribute("listProduct", productService.getAllProducts());
+			return "admin";
+		}
+		else{
+		
 	if(p.getId()==0)
 	{
 		productService.addProduct(p);	
@@ -44,6 +54,8 @@ public class AdminController {
 		productService.updateProduct(p);		
 	}
 	return "redirect:/admin";
+	}
+	
 	}
 	
 	@RequestMapping("/delete/{id}")
@@ -60,5 +72,10 @@ public class AdminController {
         model.addAttribute("listProduct",this.productService.getAllProducts());
         return "admin";
     }    
+	
+	
+	
+	
+	
 }
 
