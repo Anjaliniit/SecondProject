@@ -3,6 +3,9 @@
  */
 package com.womenadda.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,48 +14,24 @@ import javax.persistence.Id;
  * @author admin
  *
  */
-public class UserRegister {
+@Entity
+public class UserRegister implements Serializable {
 @Id
-@GeneratedValue(strategy=GenerationType.AUTO)
+@GeneratedValue(strategy=GenerationType.IDENTITY)
 int userId;
-String name,password,gender,email,address,mobile;
-/**
- * @return the userid
- */
-
-public UserRegister()
-{
-	
-}
-
-/**
- * @return the mobile
- */
-public String getMobile() {
-	return mobile;
-}
-
-/**
- * @param mobile the mobile to set
- */
-public void setMobile(String mobile) {
-	this.mobile = mobile;
-}
-
+private String name,password,gender,email,address,mobile;
 /**
  * @return the userId
  */
 public int getUserId() {
 	return userId;
 }
-
 /**
  * @param userId the userId to set
  */
 public void setUserId(int userId) {
 	this.userId = userId;
 }
-
 /**
  * @return the name
  */
@@ -113,8 +92,17 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
+/**
+ * @return the mobile
+ */
+public String getMobile() {
+	return mobile;
+}
+/**
+ * @param mobile the mobile to set
+ */
+public void setMobile(String mobile) {
+	this.mobile = mobile;
+}
 
-	
-	
-	
 }

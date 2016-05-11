@@ -1,5 +1,9 @@
 <%@include file="header.jsp" %>
-<div class="container">
+
+<div class="row">
+    <div class="col-lg-3"><p><center><h1>LOGIN PAGE<h1></center><p></div>
+    <div class="col-lg-6">
+      
 
       <form class="form-signin" action="login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
@@ -14,8 +18,14 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
-
-    </div>
+        </div>                                  
+   
+   <div class="col-lg-3"></div>
+  
+    
+<br>
+<br>
+<br>
 
 
 

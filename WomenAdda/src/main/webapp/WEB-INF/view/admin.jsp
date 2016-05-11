@@ -1,30 +1,10 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@page isELIgnored="false" %>
-<c:url value="/resources/bootstrap/css/" var="bcss"/>
-<c:url value="/resources/bootstrap/js/" var="bjs"/>
-<c:url value="/resources/images/" var="imgloc"/>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<link rel="stylesheet" href="${bcss}bootstrap.min.css"/>
-<link rel="stylesheet" href="${bcss}bootstrap-theme.min.css"/>
- <style type="text/css">
-      
-    </style>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@include file="header.jsp" %>
 <h1>
     Add a Product
 </h1>
 
-<c:url var="addAction" value="/admin/add" ></c:url>
-<form:form action="${addAction}" commandName="product" modelAttribute="product">
+<c:url var="addAction" value="/admin/add"></c:url>
+<form:form action="${addAction}" commandName="product" modelAttribute="product" method="POST" enctype="multipart/form-data" >
 <table>
     <c:if test="${!empty product.name}">
     <tr>
@@ -113,6 +93,19 @@
             <form:input path="category" />
         </td>
     </tr>
+    
+    
+     <tr>
+        <td>
+            <form:label path="image">
+                <spring:message text="Please select a image to upload a image"/>
+            </form:label>
+        </td>
+        <td>
+            <form:input path="image" type="file" />
+        </td>
+    </tr>
+    
     <tr>
         <td colspan="2">
             <c:if test="${!empty product.name}">

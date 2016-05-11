@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,8 +26,8 @@ String name;
 String brand;
 String category;
 String description;
-
-
+@Transient
+MultipartFile image;
 
 String color;
 double price;
@@ -34,6 +35,15 @@ public Product()
 {
 	
 }
+
+public MultipartFile getImage() {
+	return image;
+}
+
+public void setImage(MultipartFile image) {
+	this.image = image;
+}
+
 
 /**
  * @return the id

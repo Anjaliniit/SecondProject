@@ -25,6 +25,11 @@
 			<div class=col-xs-6><form:input path="address"/></div>
 		</div>
 		<div class="row">
+			<div class=col-xs-6><form:label path="mobile"><spring:message text="MOBILE"/></form:label></div>
+			<div class=col-xs-6><form:input path="mobile"/></div>
+		</div>
+		
+		<div class="row">
 			<div class=col-xs-6><input type="submit" value="<spring:message text="ADD USER"/>"></div>
 			
 		</div>
